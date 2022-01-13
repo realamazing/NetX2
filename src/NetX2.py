@@ -341,13 +341,9 @@ class Scene(QtWidgets.QGraphicsScene):
             item.update()
 
             self.ui.nameBox.textEdited.connect(item.setText) # renaming
-            #self.ui.nameBox.textEdited.connect(self.ui.entryLine.setText) # renaming
+
             self.ui.entryLine.sourceLabel.setText(f"{', '.join([j.text for j in self.sourceSelection])} ")
             self.ui.entryLine.destinationLabel.setText(f" {', '.join([j.text for j in self.destinationSelection])}")
-
-            #self.ui.ContextS.setText(f"{', '.join([j.text for j in self.sourceSelection])}")
-            #self.ui.ContextD.setText(f"{', '.join([j.text for j in self.destinationSelection])}")
-
             if len(self.selection) == 1: #if only one item is selected, show children and ancestors
                 self.ui.nameBox.setText(self.selection[0].text)
                 self.setTabs(item)
@@ -815,7 +811,7 @@ class Ui(QtWidgets.QMainWindow):
         else:
             self.save()
     def saveAs(self):
-        filename = QtWidgets.QFileDialog().getSaveFileName(None,'Save Net','NETX2//nets','PKL File (*.pkl)')[0]
+        filename = QtWidgets.QFileDialog().getSaveFileName(None,'Save Net','nets//','NET File (*.net)')[0]
         if filename == '':
             return
         self.config['runtime']['filepath'] = filename
@@ -848,7 +844,7 @@ class Ui(QtWidgets.QMainWindow):
         self.scene.status(f'Saved Net to {n}')
     def load(self,filename=''):
         if filename == '':
-            filename = QtWidgets.QFileDialog().getOpenFileName(None,'Load Net','NETX2//nets','PKL File (*.pkl)')[0]
+            filename = QtWidgets.QFileDialog().getOpenFileName(None,'Load Net','nets//','NET File (*.net)')[0]
             if filename == '':
                 return
         self.config['runtime']['filepath'] = filename
