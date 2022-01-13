@@ -17,7 +17,7 @@
 - added a flip sources and dstinations button
 - fixed smooth move
 - fix lag when selecting entity
-- - fixed detail section properly
+- fixed detail section properly
 - Made animated selection
 - color updates + line fix
 - Fixed memory leak with log file
