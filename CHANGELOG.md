@@ -7,7 +7,7 @@
 - Added new strcture system ( packed graph operations into classes )
 - Fixed merging relationships
 - Fixed Flipping relationships 
-- made entity selection through name
+- Added selecting entitys through entry bar
 - made an entity name suggestor (when typing in an entity show all possible selections)
 - completely remade the entry line
 - made escape deselect all items
@@ -17,7 +17,7 @@
 - added a flip sources and dstinations button
 - fixed smooth move
 - fix lag when selecting entity
-- - fixed detail section properly
+- fixed detail section properly
 - Made animated selection
 - color updates + line fix
 - Fixed memory leak with log file
