@@ -1,3 +1,10 @@
+# ver 1.0
+
+figured out how to use github
+
+Added:
+- restructured project into respective res,src,dep folders
+
 # Pre-Alpha Development 
 - Added tooltips for all buttons, so the user can know what keys to press
 - added a single file for all ui, graph, and entry line customizations (themes yay)
