@@ -4,6 +4,7 @@ figured out how to use github
 
 Added:
 - restructured project into respective res,src,dep folders
+- 
 
 # Pre-Alpha Development 
 Added tooltips for all buttons, so the user can know what keys to press
