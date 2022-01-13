@@ -1,10 +1,3 @@
-
------- BUGS ------
-collapsing window and moving around
-window size changing when windowed
-selection animation bug on entitys
-
-bounding box issues
 ------ TO DO -------
 undo/redo functions
 
