@@ -1,18 +1,4 @@
------- TO DO -------
-undo/redo functions
 
-Make picture support
-Make a menu
-    add toggles
-    add in application color picker
-*make navigation shortcuts
-
-make nlu detremine types
-
-make splash screen
------- IN PROGRESS ------
-make theme file selector
-make graphic icons for buttons
 ------ DONE ------
 Added tooltips for all buttons, so the user can know what keys to press
 added a single file for all ui, graph, and entry line customizations (themes yay)
