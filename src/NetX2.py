@@ -774,9 +774,7 @@ class Ui(QtWidgets.QMainWindow):
         return super().mouseMoveEvent(event)
     def screenShot(self):
         viewRect = self.mainView.mapToScene(self.mainView.rect()).boundingRect()
-        #image = self.mainView.grab(self.mainView.rect())
         image = QImage(viewRect.size().toSize()*int(self.config['settings']['screenshotquality']),QImage.Format_ARGB32)
-        #image.setDevicePixelRatio(.1)
         #image = QImage(self.scene.sceneRect().size().toSize(),QImage.Format_ARGB32) # full sized picture
         image.fill(Qt.transparent)
         painter = QPainter(image)
