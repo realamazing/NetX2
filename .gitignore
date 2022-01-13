@@ -1,2 +1,3 @@
-.config\
-nets\
+
+*.pkl
+.config/config.ini

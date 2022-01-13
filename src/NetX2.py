@@ -76,8 +76,9 @@ class Scene(QtWidgets.QGraphicsScene):
     def updateInfo(self):
         filepath = self.ui.config['runtime']['filepath']
         quality = self.ui.config['settings']['screenshotquality']
+        version = self.ui.config['releaseinfo']['version']
         info = [
-            'Ver 1.04',
+            f'Ver: {version}',
             f'Entities: {len(self.entities)}',
             f'Relationships: {len(self.relationships)}',
             f'Savefile: "{filepath}"',
