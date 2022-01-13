@@ -1,0 +1,7 @@
+Activiate
+.venv\Scripts\activate.bat 
+Requirements File
+pip freeze > dep/requirements.txt
+Build application
+pyinstaller --add-data "res;res" --add-data "nets;nets" --add-data "screenshots;screenshots" --add-data ".config;.config" --add-data "themes;themes" --noconsole --noconfirm src/NetX2.py
+pyinstaller main4.spec
