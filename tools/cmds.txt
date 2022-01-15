@@ -4,4 +4,6 @@ Requirements File
 pip freeze > dep/requirements.txt
 Build application
 pyinstaller --add-data "res;res" --add-data "nets;nets" --add-data "screenshots;screenshots" --add-data ".config;.config" --add-data "themes;themes" --noconsole --noconfirm src/NetX2.py
+pyinstaller --add-data "res;res" --add-data "nets;nets" --add-data "screenshots;screenshots" --add-data ".config;.config" --add-data "themes;themes" --noconfirm --onefile src/NetX2.py
+pyinstaller --noconfirm --onefile --noconsole --add-data "res;res" src/NetX2.py
 pyinstaller NetX2.spec

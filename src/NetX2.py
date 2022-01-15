@@ -7,20 +7,21 @@ import sys
 import string
 import random
 import datetime
-
 import json
-
-from entryWidgets import EntryLine,listLabel
-
-from clickLabel import clickableLabel
-from structure2 import Entity, Relationship
 import re
 import pickle
-from nlu import nlp
-
+import os
 from pympler.tracker import SummaryTracker
 from pympler import muppy
 import math
+from filemanager import repair,SourcePath
+repair()
+
+from entryWidgets import EntryLine
+from clickLabel import clickableLabel
+from structure2 import Entity, Relationship
+from nlu import nlp
+
 tracker = SummaryTracker()
 
 class Scene(QtWidgets.QGraphicsScene):
@@ -53,7 +54,6 @@ class Scene(QtWidgets.QGraphicsScene):
                 text = ''.join(random.choices(string.ascii_lowercase + string.digits + ' ', k = random.randint(2,5)))
                 #text = ''
                 item = self.addEntity(pos,text,0,0)
-
         for _ in range(1000):
             upper = random.randint(2,4)
             split = random.randint(2,upper)-1
@@ -671,9 +671,10 @@ class DetailViewport(QtWidgets.QGraphicsView):
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('res/main.ui', self) # Load the .ui file
+        uic.loadUi(SourcePath('res/main.ui'), self) # Load the .ui file
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint)
         self.setFocusPolicy(Qt.ClickFocus)
+
         self.config = configparser.ConfigParser()
         self.config.read('.config/config.ini')
 
@@ -719,7 +720,7 @@ class Ui(QtWidgets.QMainWindow):
             timer = QTimer(self)
             timer.setSingleShot(True)
             timer.timeout.connect(lambda: self.load(filename = self.config['runtime']['filepath']))
-            timer.start(0) # wait until after event loop to load           
+            timer.start(0) # wait until after event loop to load
     def applyTheme(self):
         with open(self.config['theme']['themefile'], "r") as jsonfile:
             theme = json.load(jsonfile)
@@ -849,12 +850,7 @@ class Ui(QtWidgets.QMainWindow):
         name = re.findall('/[^/]*$',filename)[0][1:-4]
         self.Title.setText(f'{name} - NetX2')
         self.scene.clearSelection()
-        #while self.scene.relationships != []:
-        #    for relat in self.scene.relationships:
-        #        self.scene.deleteRelationship(relat)
-        #while self.scene.entities != []:
-        #    for entity in self.scene.entities:
-        #        self.scene.deleteEntity(entity)
+
         self.scene.clear()
         self.scene.deleteLater()
         self.scene = Scene(self)

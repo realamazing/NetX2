@@ -5,9 +5,9 @@ import string
 import difflib
 import json
 import configparser
+
 config = configparser.ConfigParser()
 config.read('.config/config.ini')
-
 with open(config['theme']['themefile'], "r") as jsonfile:
     style = json.load(jsonfile)['entryline']
     jsonfile.close()
